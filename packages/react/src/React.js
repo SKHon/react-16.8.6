@@ -49,6 +49,8 @@ import {error, warn} from './withComponentStack';
 import {enableStableConcurrentModeAPIs} from 'shared/ReactFeatureFlags';
 
 const React = {
+
+ // Children 的几个方法
   Children: {
     map,
     forEach,
