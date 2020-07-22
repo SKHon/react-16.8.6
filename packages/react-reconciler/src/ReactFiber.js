@@ -250,7 +250,7 @@ function FiberNode(
   // return 代表父 fiber，child 代表子 fiber、sibling 代表下一个兄弟节点，和链表中的 next 一个含义
   // index 代表了当前 fiber 的索引
   // 另外还有一个 alternate 属性很重要，这个属性代表了一个更新中的 fiber，这部分的内容后面会涉及到
-  this.tag = tag;
+  this.tag = tag; 
   this.key = key;
   this.elementType = null;
   this.type = null;

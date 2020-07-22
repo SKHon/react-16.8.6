@@ -566,14 +566,82 @@ function legacyRenderSubtreeIntoContainer(
   // member of intersection type." Whyyyyyy.
   // 一开始进来 container 上是肯定没有这个属性的
   let root: Root = (container._reactRootContainer: any);
-  // 没有 root 会执行 if 中的操作
+  // 没有 root 会执行 if 中的操作，那就是第一次ReactDom.render()肯定会走这里
   if (!root) {
     // Initial mount
-    // 创建一个 root 出来，类型是 ReactRoot
+    // 创建一个 root 出来，类型是 ReactRoot。
+    
     root = container._reactRootContainer = legacyCreateRootFromDOMContainer(
       container,
       forceHydrate,
     );
+
+    /*
+    回来的root结构如下：
+      root: ReactRoot {
+        _internalRoot: {
+          containerInfo: div#root
+          context: null
+          current: FiberNode {tag: 3, key: null, elementType: null, type: null, stateNode: {…}, …}
+          didError: false
+          earliestPendingTime: 0
+          earliestSuspendedTime: 0
+          expirationTime: 0
+          finishedWork: null
+          firstBatch: null
+          hydrate: false
+          interactionThreadID: 1
+          latestPendingTime: 0
+          latestPingedTime: 0
+          latestSuspendedTime: 0
+          memoizedInteractions: Set(0) {}
+          nextExpirationTimeToWorkOn: 0
+          nextScheduledRoot: null
+          pendingChildren: null
+          pendingCommitExpirationTime: 0
+          pendingContext: null
+          pendingInteractionMap: Map(0) {}
+          pingCache: null
+          timeoutHandle: -1
+        }
+      }
+
+      里面有个current属性，是个Fiber对象
+      current: FiberNode {
+        actualDuration: 0
+        actualStartTime: -1
+        alternate: null
+        child: null
+        childExpirationTime: 0
+        contextDependencies: null
+        effectTag: 0
+        elementType: null
+        expirationTime: 0
+        firstEffect: null
+        index: 0
+        key: null
+        lastEffect: null
+        memoizedProps: null
+        memoizedState: null
+        mode: 4
+        nextEffect: null
+        pendingProps: null
+        ref: null
+        return: null
+        selfBaseDuration: 0
+        sibling: null
+        stateNode: {current: FiberNode, containerInfo: div#root, pendingChildren: null, earliestPendingTime: 0, latestPendingTime: 0, …}
+        tag: 3
+        treeBaseDuration: 0
+        type: null
+        updateQueue: null
+        _debugID: 1
+        _debugIsCurrentlyTiming: false
+        _debugOwner: null
+        _debugSource: null
+      }
+    */
+
     // 反正我从没传过 callback，不关心实现
     if (typeof callback === 'function') {
       const originalCallback = callback;
@@ -673,6 +741,7 @@ const ReactDOM: Object = {
     return findHostInstance(componentOrElement);
   },
 
+  // ssr的时候用这个
   hydrate(element: React$Node, container: DOMContainer, callback: ?Function) {
     invariant(
       isValidContainer(container),

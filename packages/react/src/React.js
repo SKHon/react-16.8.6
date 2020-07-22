@@ -59,9 +59,13 @@ const React = {
     only,
   },
 
-  createRef,
-  Component,
+  createRef, // 这个创建一个对象{current: null}， 用ref属性，来表记一个组件。
+  Component, // 我们用来继承的基类
   PureComponent,
+  // React.PureComponent与React.Component类似。 
+  // 它们之间的区别在于，React.Component并未实现shouldComponentUpdate（），
+  // 但React.PureComponent却通过浅层的prop和状态比较来实现它。
+
 
   createContext,
   forwardRef,
