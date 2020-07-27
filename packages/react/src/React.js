@@ -68,7 +68,7 @@ const React = {
 
 
   createContext,
-  forwardRef,
+  forwardRef, // 用来高阶组件传递ref
   lazy,
   memo,
 
