@@ -1,5 +1,5 @@
 
-import React from '@/react'
+import React from 'react'
 import StateHookCom from './hooks/stateHook'
 import EffctHookCom from './hooks/effectHook'
 import ContextHookCom from './hooks/contextHook'

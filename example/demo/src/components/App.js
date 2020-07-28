@@ -1,4 +1,4 @@
-import React, { Component , Suspense} from '@/react';
+import React, { Component , Suspense} from 'react';
 import HooksCom from './hooksCom'
 
 

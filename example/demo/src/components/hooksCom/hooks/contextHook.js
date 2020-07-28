@@ -1,4 +1,4 @@
-import React, {useContext} from '@/react'
+import React, {useContext} from 'react'
 const MyContext = React.createContext()
 export default function Example() {
   

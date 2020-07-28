@@ -8,7 +8,7 @@ var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 var getClientEnvironment = require('./env');
 var paths = require('./paths');
-
+const path = require('path')
 
 
 // Webpack uses `publicPath` to determine where the app is being served from.
@@ -79,7 +79,10 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
-      '@': require('path').resolve(__dirname, '../lib/node_modules')
+      'react': path.resolve(__dirname, '../src/react/react'),
+      'react-dom': path.resolve(__dirname, '../src/react/react-dom'),
+      'react-reconciler': path.resolve(__dirname, '../src/react/react-reconciler'),
+      //'@': require('path').resolve(__dirname, '../lib/node_modules')
     }
   },
   
