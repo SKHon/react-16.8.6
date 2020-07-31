@@ -181,6 +181,8 @@ export function applyDerivedStateFromProps(
 const classComponentUpdater = {
   isMounted,
   enqueueSetState(inst, payload, callback) {
+
+    // 注意，进入调度的，是fiber root
     const fiber = getInstance(inst);
     const currentTime = requestCurrentTime();
     const expirationTime = computeExpirationForFiber(currentTime, fiber);

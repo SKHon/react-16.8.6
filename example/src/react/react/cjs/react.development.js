@@ -14,7 +14,6 @@
 if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
-
 var _assign = require('object-assign');
 var checkPropTypes = require('prop-types/checkPropTypes');
 
