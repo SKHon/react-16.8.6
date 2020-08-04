@@ -1245,6 +1245,7 @@ function ChildReconciler(shouldTrackSideEffects) {
   // This API will tag the children with the side-effect of the reconciliation
   // itself. They will be added to the side-effect list as we pass through the
   // children and the parent.
+  // diff算法入口
   function reconcileChildFibers(
     returnFiber: Fiber,
     currentFirstChild: Fiber | null,

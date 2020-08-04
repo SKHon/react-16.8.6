@@ -8,7 +8,7 @@ export default class LazyCom extends React.Component {
       <div>
         <p>this is wrapper</p>
         <Suspense fallback={<div>Loading...</div>}>
-        <LazyButton />
+          <LazyButton />
         </Suspense>
       </div>
     )
