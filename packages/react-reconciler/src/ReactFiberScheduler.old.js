@@ -637,6 +637,7 @@ function flushPassiveEffects() {
   return didFlushEffects;
 }
 
+// commit阶段的工作起点
 function commitRoot(root: FiberRoot, finishedWork: Fiber): void {
   isWorking = true;
   isCommitting = true;
@@ -1926,7 +1927,7 @@ export function warnIfNotCurrentlyActingUpdatesInDev(fiber: Fiber): void {
 }
 
 function scheduleWork (fiber: Fiber, expirationTime: ExpirationTime) {
-  // 由当前fiber向上遍历，获取 root fiber
+  // 由当前fiber向上遍历，获取 fiber root。并且如果当前fiber更紧急，则更新expirationTime
   const root = scheduleWorkToRoot(fiber, expirationTime);
   if (root === null) {
     if (__DEV__) {

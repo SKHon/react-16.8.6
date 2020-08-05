@@ -886,6 +886,7 @@ function getHostSibling(fiber: Fiber): ?Instance {
   // search past them. This leads to exponential search for the next sibling.
   // TODO: Find a more efficient way to do this.
   let node: Fiber = fiber;
+  // 还有这种操作？学到了
   siblings: while (true) {
     // If we didn't find anything, let's try the next sibling.
     while (node.sibling === null) {
