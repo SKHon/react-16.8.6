@@ -8,6 +8,7 @@ import BatchedUpdataCom from './batchedUpdate'
 import LazyCom from './lazyComponent'
 import RefsCom from './refsCom'
 import FragmentCom from './fragments'
+import ChrildrenCom from './children'
 class App extends Component {
   render() {
     return (
@@ -16,7 +17,8 @@ class App extends Component {
           {/* <HooksCom /> */}
           {/* <LazyCom /> */}
           {/* <RefsCom /> */}
-          <FragmentCom />
+          {/* <FragmentCom /> */}
+          <ChrildrenCom />
       </div>
     );
   }
