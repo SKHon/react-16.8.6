@@ -14,9 +14,9 @@ import React from 'react'
 // }
 export default function Father(props) {
   // React.Children.forEach(props.children, (node, context) => console.log(node, context) )
-  
+
     return <>
-    {React.Children.map(props.children, c => [[c,c]])}
+    {React.Children.map(props.children, c => c)}
       {/* {props.children} */}
     </>
 }

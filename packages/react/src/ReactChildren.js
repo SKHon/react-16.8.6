@@ -279,6 +279,7 @@ function getComponentKey(component, index) {
     return escape(component.key);
   }
   // Implicit key determined by the index in the set
+  // 为什么要转成36进制？可能是为了优化存储空间吧。
   return index.toString(36);
 }
 

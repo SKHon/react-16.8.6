@@ -24426,7 +24426,7 @@ function createContainer(containerInfo, isConcurrent, hydrate) {
 }
 
 function updateContainer(element, container, parentComponent, callback) {
-  // 取出容器的 fiber 对象，也就是 fiber root
+  // 取出容器的 fiber 对象，也就是 root fiber
   var current$$1 = container.current;
   // 计算时间
   var currentTime = requestCurrentTime$$1();

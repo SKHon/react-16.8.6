@@ -16,6 +16,8 @@ import type {
 } from 'react-reconciler/src/ReactFiberRoot';
 
 import '../shared/checkReact';
+
+// 来执行事件模块的注入
 import './ReactDOMClientInjection';
 
 import {
